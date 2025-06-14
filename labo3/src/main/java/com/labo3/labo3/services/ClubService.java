@@ -19,8 +19,11 @@ public class ClubService {
         Club newClub = new Club();
         newClub.setName(club.getClubName());
         newClub.setCountry(club.getCountry());
-        newClub.setTitles(club.getTitles());
         newClub.setCoach(club.getCoach());
+        newClub.setTitles(club.getTitles());
+
+        // Guardar el club en la base de datos
+        clubRepository.save(newClub); // Asegúrate de que esta línea esté incluida
     }
     public List<Club> getAllClubs() {
         return clubRepository.findAll();
