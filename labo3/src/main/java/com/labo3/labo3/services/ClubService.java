@@ -30,6 +30,10 @@ public class ClubService {
         return clubRepository.findAll();
     }
 
+    public List<Club> getClubsByTitles(Integer titles) {
+        return clubRepository.findByTitlesGreaterThanEqual(titles);
+    }
+
     public ResponseDTO deleteClub(Integer clubId) {
         Optional<Club> opClub = clubRepository.findById(clubId);
         if (opClub.isEmpty()) {

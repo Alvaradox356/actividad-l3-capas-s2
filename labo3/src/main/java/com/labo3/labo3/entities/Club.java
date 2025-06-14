@@ -27,5 +27,5 @@ public class Club {
     private String coach;
 
     @Column(name = "titles")
-    private String titles;
+    private Integer titles;
 }

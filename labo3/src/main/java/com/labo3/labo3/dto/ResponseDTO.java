@@ -11,5 +11,5 @@ public class ResponseDTO {
     private String name;
     private String country;
     private String coach;
-    private String titles;
+    private Integer titles;
 }

@@ -26,11 +26,10 @@ public class ClubController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Club registrado exitosamente");
     }
 
-    @GetMapping
-    public ResponseEntity<List<Club>> getClubs() {
-
-        return ResponseEntity.ok(clubService.getAllClubs());
-
+    @GetMapping("/search")
+    public ResponseEntity<List<Club>> getClubsByTitles(@RequestParam("titles") Integer titles) {
+        List<Club> clubs = clubService.getClubsByTitles(titles);
+        return ResponseEntity.ok(clubs);
     }
 
     @DeleteMapping("/{id}")

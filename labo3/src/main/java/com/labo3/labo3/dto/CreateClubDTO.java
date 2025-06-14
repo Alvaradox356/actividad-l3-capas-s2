@@ -14,5 +14,5 @@ public class CreateClubDTO {
     @NotEmpty
     private String coach;
     @NotEmpty
-    private String titles;
+    private Integer titles;
 }
