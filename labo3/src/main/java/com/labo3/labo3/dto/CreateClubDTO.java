@@ -8,7 +8,7 @@ import lombok.Getter;
 @Data
 public class CreateClubDTO {
     @NotEmpty
-    private String clubName;
+    private String name;
     @NotEmpty
     private String country;
     @NotEmpty

@@ -17,7 +17,7 @@ public class ClubService {
 
     public void addClub(CreateClubDTO club) {
         Club newClub = new Club();
-        newClub.setName(club.getClubName());
+        newClub.setName(club.getName());
         newClub.setCountry(club.getCountry());
         newClub.setCoach(club.getCoach());
         newClub.setTitles(club.getTitles());
