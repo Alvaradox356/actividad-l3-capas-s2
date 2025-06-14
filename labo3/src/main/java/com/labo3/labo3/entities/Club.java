@@ -1,8 +1,16 @@
 package com.labo3.labo3.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+@Table(name = "clubs")
 public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
