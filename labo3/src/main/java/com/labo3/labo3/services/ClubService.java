@@ -6,6 +6,10 @@ import com.labo3.labo3.repositories.ClubRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class ClubService {
     @Autowired
@@ -17,5 +21,17 @@ public class ClubService {
         newClub.setCountry(club.getCountry());
         newClub.setTitles(club.getTitles());
         newClub.setCoach(club.getCoach());
+    }
+    public List<Club> getAllClubs() {
+        return clubRepository.findAll();
+    }
+
+    public void deleteClub(Integer clubId) {
+        Optional<Club> opClub = clubRepository.findById(clubId);
+        if (opClub.isEmpty()) {
+            throw new RuntimeException("Book not found");
+        }
+        Club clubToDelete = opClub.get();
+        clubRepository.delete(clubToDelete);
     }
 }
