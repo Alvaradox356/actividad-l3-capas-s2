@@ -1,6 +1,7 @@
 package com.labo3.labo3.controller;
 
 import com.labo3.labo3.dto.CreateClubDTO;
+import com.labo3.labo3.dto.ResponseDTO;
 import com.labo3.labo3.entities.Club;
 import com.labo3.labo3.services.ClubService;
 import jakarta.validation.Valid;
@@ -31,4 +32,10 @@ public class ClubController {
         return ResponseEntity.ok(clubService.getAllClubs());
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ResponseDTO> deleteClub(@PathVariable int id) {
+        return ResponseEntity.ok(clubService.deleteClub(id));
+    }
+
 }

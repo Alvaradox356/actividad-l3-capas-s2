@@ -1,6 +1,7 @@
 package com.labo3.labo3.services;
 
 import com.labo3.labo3.dto.CreateClubDTO;
+import com.labo3.labo3.dto.ResponseDTO;
 import com.labo3.labo3.entities.Club;
 import com.labo3.labo3.repositories.ClubRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +30,19 @@ public class ClubService {
         return clubRepository.findAll();
     }
 
-    public void deleteClub(Integer clubId) {
+    public ResponseDTO deleteClub(Integer clubId) {
         Optional<Club> opClub = clubRepository.findById(clubId);
         if (opClub.isEmpty()) {
             throw new RuntimeException("Book not found");
         }
         Club clubToDelete = opClub.get();
         clubRepository.delete(clubToDelete);
+        return ResponseDTO.builder()
+                .id(clubToDelete.getId())
+                .name(clubToDelete.getName())
+                .country(clubToDelete.getCountry())
+                .coach(clubToDelete.getCoach())
+                .titles(clubToDelete.getTitles())
+                .build();
     }
 }
